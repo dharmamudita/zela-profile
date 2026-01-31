@@ -1,66 +1,42 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import ThreeGalaxyBackground from '@/components/ThreeGalaxyBackground';
+import HeroSection from '@/components/HeroSection';
+import DocumentationSection from '@/components/DocumentationSection';
+import SocialLinks from '@/components/SocialLinks';
+import ProductGrid from '@/components/ProductGrid';
+import ParallaxGallery from '@/components/ParallaxGallery';
+import AboutSection from '@/components/AboutSection';
+import SupportContact from '@/components/SupportContact';
+import { Instagram } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main style={{ position: 'relative', width: '100%', overflow: 'hidden', minHeight: '100vh' }}>
+      <ThreeGalaxyBackground />
+
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <HeroSection />
+        <AboutSection />
+        <SocialLinks />
+        <DocumentationSection />
+        <ProductGrid />
+        <SupportContact />
+
+        <footer style={{
+          textAlign: 'center',
+          padding: '3rem 2rem',
+          color: 'rgba(255,255,255,0.4)',
+          fontSize: '0.9rem',
+          marginTop: '4rem',
+          borderTop: '1px solid rgba(255,255,255,0.05)',
+          background: 'rgba(0,0,0,0.2)'
+        }}>
+          <p>© {new Date().getFullYear()} _.zeeelaa. All rights reserved.</p>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>Designed with Galaxy Aesthetics</p>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', opacity: 0.7, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
+            Website by <Instagram size={12} style={{ marginLeft: '4px' }} /> <a href="https://instagram.com/anothervoltz" target="_blank" rel="noopener noreferrer" style={{ color: '#ec4899', textDecoration: 'none' }}>anothervoltz</a>
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </footer>
+      </div>
+    </main>
   );
 }
